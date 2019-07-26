@@ -102,11 +102,11 @@ ax.set_zlabel('Area')
 
 df_connected['true'] = df_connected['true'].astype(bool)
 df_connected.head()
-for (bool_type, color, maker_size) in [(False, 'b', 5), (True, 'r', 15)]:
+for (bool_type, color) in [(False, 'b'), (True, 'r')]:
     ax.plot(df_connected.width[df_connected['true'] == bool_type],
             df_connected.height[df_connected['true'] == bool_type],
             df_connected.area[df_connected['true'] == bool_type],
-            "o", c=color, label=bool_type, s=maker_size)
+            "o", c=color, label=bool_type)
 plt.show()
 
 
@@ -144,3 +144,6 @@ plt.xlabel('Number')
 plt.ylabel('Height')
 
 # %%
+df_connected.to_pickle('./pandas_df_connected.pkl')
+
+#%%
